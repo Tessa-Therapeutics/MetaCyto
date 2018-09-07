@@ -14,9 +14,9 @@
 #' findCutoff(x)
 #' @importFrom cluster silhouette
 #' @export
-findCutoff=function(x,returnSil=FALSE,useBL=TRUE,minX=0,seed=NULL){
+findCutoff=function(x,returnSil=FALSE,useBL=TRUE,minX=0,seed=1){
   set.seed(seed)
-  if(length(x)>2000){x=sample(x,2000,set)}
+  if(length(x)>2000){x=sample(x,2000)}
   if(useBL==TRUE){x=baselineCut(x)}
   #valley=sapply(seq(0.01,0.99,length.out=100),function(q){quantile(x,q)})
   valley=seq(min(x),max(x),length.out=100)
